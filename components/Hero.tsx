@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/photos/frame-held-wide.jpg"
-          alt=""
+          alt="Beekeeper holding a frame of honeycomb at a Colorado mountain apiary"
           fill
           priority
           sizes="100vw"

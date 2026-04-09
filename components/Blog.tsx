@@ -29,15 +29,12 @@ export default function Blog() {
               <div className="relative overflow-hidden h-52">
                 <Image
                   src={post.image}
-                  alt={post.title}
+                  alt={post.imageAlt ?? post.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brown/40 to-transparent" />
-                <span className="absolute bottom-3 left-4 text-white/80 text-sm font-medium">
-                  {post.date}
-                </span>
               </div>
               <div className="p-6">
                 <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-brown mb-3 group-hover:text-honey transition-colors">

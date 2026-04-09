@@ -108,7 +108,7 @@ export default function Contact() {
           {/* Contact form */}
           <div className="bg-warm-white rounded-2xl shadow-xl p-8 border border-cream-dark/30">
             {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full text-center py-12">
+              <div role="status" aria-live="polite" className="flex flex-col items-center justify-center h-full text-center py-12">
                 <div className="w-16 h-16 bg-green/10 rounded-full flex items-center justify-center mb-4">
                   <svg className="w-8 h-8 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
