@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#F5E6C8"/>
+  <pattern id="hex" width="56" height="100" patternUnits="userSpaceOnUse">
+    <path d="M28 66L0 50L0 16L28 0L56 16L56 50L28 66ZM28 100L0 84L0 50L28 34L56 50L56 84L28 100Z" fill="none" stroke="#D4A017" stroke-width="0.5" opacity="0.3"/>
+  </pattern>
+  <rect width="600" height="600" fill="url(#hex)"/>
+  <circle cx="300" cy="240" r="80" fill="#D4A017" opacity="0.2"/>
+  <text x="300" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#D4A017" opacity="0.8">&#x1F36F;</text>
+  <text x="300" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#8B6914" opacity="0.6">Wildflower Honey</text>
+  <text x="300" y="385" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8B6914" opacity="0.4">Replace with product photo</text>
+</svg>
