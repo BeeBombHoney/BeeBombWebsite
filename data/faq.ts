@@ -12,7 +12,7 @@ export const faqs = [
   {
     question: "How can I purchase your honey?",
     answer:
-      "You can find us at local farmers markets in Steamboat Springs, or visit us at 2130 Resort Drive, Unit E. You can also call us at (303) 641-1659 or email beebombhoney@gmail.com to place an order.",
+      "You can find us at local farmers markets in Steamboat Springs, or visit us at 2130 Resort Drive, Unit E. You can also call us at (303) 641-1659 or email beebombhoneyco@gmail.com to place an order.",
   },
   {
     question: "What makes mountain wildflower honey different?",
@@ -22,7 +22,7 @@ export const faqs = [
   {
     question: "Do you offer wholesale or bulk orders?",
     answer:
-      "We do! Whether you're a restaurant, retailer, or planning an event, we'd love to work with you. Reach out to us at beebombhoney@gmail.com and we'll put together a custom quote.",
+      "We do! Whether you're a restaurant, retailer, or planning an event, we'd love to work with you. Reach out to us at beebombhoneyco@gmail.com and we'll put together a custom quote.",
   },
   {
     question: "How should I store my honey?",

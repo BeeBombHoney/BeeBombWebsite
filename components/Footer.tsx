@@ -45,8 +45,8 @@ export default function Footer() {
               <a href="tel:3036411659" className="block hover:text-honey transition-colors">
                 (303) 641-1659
               </a>
-              <a href="mailto:beebombhoney@gmail.com" className="block hover:text-honey transition-colors">
-                beebombhoney@gmail.com
+              <a href="mailto:beebombhoneyco@gmail.com" className="block hover:text-honey transition-colors">
+                beebombhoneyco@gmail.com
               </a>
               <a
                 href="https://www.facebook.com/people/Bee-Bomb-Honey/61552058123683/"
