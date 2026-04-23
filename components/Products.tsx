@@ -1,72 +1,126 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
-import { products } from "@/data/products";
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Products", href: "#products" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Videos", href: "#videos" },
+  { label: "Blog", href: "#blog" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
+];
 
-export default function Products() {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section id="products" className="relative py-24 sm:py-32 bg-cream">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-honey font-medium tracking-[0.2em] uppercase text-sm mb-3">
-            What We Make
-          </p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl font-bold text-brown mb-4">
-            Our Products
-          </h2>
-          <div className="honey-divider max-w-xs mx-auto">
-            <span className="text-honey text-2xl">&#x2B21;</span>
-          </div>
-          <p className="mt-6 text-brown-light max-w-2xl mx-auto text-lg">
-            From pure mountain honey to hand-crafted spreads, everything we make
-            starts with our bees and the wildflowers of the Yampa Valley.
-          </p>
-        </div>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-warm-white/95 backdrop-blur-md shadow-md"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#home" className="flex items-center gap-3">
+          <Image
+            src="/bee_bomb_logo.png"
+            alt="Bee Bomb Honey logo"
+            width={52}
+            height={52}
+            className="object-contain"
+          />
+          <span
+            className={`font-[family-name:var(--font-playfair)] text-xl font-bold tracking-tight hidden sm:block ${
+              scrolled ? "text-brown" : "text-white"
+            }`}
+          >
+            Bee Bomb Honey
+          </span>
+        </a>
 
-        {/* Product grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.name}
-              className="group bg-warm-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-honey ${
+                scrolled ? "text-brown-light" : "text-white/90"
+              }`}
             >
-              {/* Image */}
-              <div className="relative overflow-hidden h-64">
-                <Image
-                  src={product.image}
-                  alt={product.imageAlt ?? product.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                {/* Tag */}
-                <span className="absolute top-4 right-4 bg-honey text-brown text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
-                  {product.tag}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-brown mb-3">
-                  {product.name}
-                </h3>
-                <p className="text-brown-light text-sm leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </div>
+              {link.label}
+            </a>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <a
-            href="#contact"
-            className="inline-block bg-honey text-brown font-semibold px-8 py-4 rounded-full hover:bg-honey-light transition-colors duration-300 shadow-lg hover:shadow-xl"
-          >
-            Inquire About Orders
-          </a>
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`block w-6 h-0.5 transition-all duration-300 ${
+              menuOpen
+                ? "rotate-45 translate-y-2 bg-brown"
+                : scrolled
+                  ? "bg-brown"
+                  : "bg-white"
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 transition-all duration-300 ${
+              menuOpen
+                ? "opacity-0"
+                : scrolled
+                  ? "bg-brown"
+                  : "bg-white"
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 transition-all duration-300 ${
+              menuOpen
+                ? "-rotate-45 -translate-y-2 bg-brown"
+                : scrolled
+                  ? "bg-brown"
+                  : "bg-white"
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 bg-warm-white/95 backdrop-blur-md ${
+          menuOpen ? "max-h-96 border-b border-cream-dark" : "max-h-0"
+        }`}
+      >
+        <div className="px-6 pb-6 flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-brown-light text-sm font-medium uppercase tracking-wide hover:text-honey transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
-    </section>
+    </nav>
   );
 }
