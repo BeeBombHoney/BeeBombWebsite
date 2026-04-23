@@ -1,34 +1,27 @@
-export const products = [
+export const faqs = [
   {
-    name: "Mountain Wildflower Honey",
-    description:
-      "Pure, raw honey harvested from wildflower meadows in the Yampa Valley. Rich, complex flavor with floral notes unique to the Colorado Rockies.",
-    image: "/photos/product-jars-lineup.jpg",
-    imageAlt: "Four Bee Bomb honey jars lined up outdoors in different sizes and shades of gold",
-    tag: "Bestseller",
+    question: "Is your honey raw and unfiltered?",
+    answer:
+      "Yes. All of our honey is 100% raw and unfiltered. We never heat-treat or ultra-filter our honey, so it retains all of its natural enzymes, pollen, and nutrients straight from the hive.",
   },
   {
-    name: "Raw Honeycomb",
-    description:
-      "Straight from the hive — chewy, waxy, and bursting with unfiltered honey. Perfect on a cheese board or eaten by the spoonful.",
-    image: "/photos/packaged-honeycomb.jpg",
-    imageAlt: "Packaged squares of raw honeycomb ready for sale",
-    tag: "Fan Favorite",
+    question: "Where are your bees located?",
+    answer:
+      "We keep hives in three locations: Steamboat Springs, Hayden, and Denver. Each spot has its own mix of local flora, which gives the honey from each location its own distinct flavor.",
   },
   {
-    name: "Wildflower Honey Butter",
-    description:
-      "Our mountain wildflower honey whipped with creamy butter. Spread it on warm bread, pancakes, or biscuits for a taste of the Rockies.",
-    image: "/photos/product-awards-display.jpg",
-    imageAlt: "Award-winning Bee Bomb honey arranged with ribbons and a frame of comb",
-    tag: "New",
+    question: "How can I purchase your honey?",
+    answer:
+      "You can find us at local farmers markets in Steamboat Springs, or visit us at 2130 Resort Drive, Unit E. You can also call us at (303) 641-1659 or email beebombhoneyco@gmail.com to place an order.",
   },
   {
-    name: "Berry Honey Jam",
-    description:
-      "Local berries blended with our raw honey — no refined sugar. A sweet, tangy spread that captures Colorado summer in every jar.",
-    image: "/photos/product-bags-and-jars.jpg",
-    imageAlt: "Bee Bomb branded gift bags with honey jars on display",
-    tag: "Seasonal",
+    question: "What makes mountain wildflower honey different?",
+    answer:
+      "Mountain wildflower honey comes from bees foraging on a wide mix of high-altitude wildflowers. That diversity creates a complex, rich flavor that shifts subtly with each season, unlike single-source honeys.",
+  },
+  {
+    question: "How should I store my honey?",
+    answer:
+      "Store honey at room temperature in a dry place. Raw honey never expires. If it crystallizes, that is completely natural. Just set the jar in warm water to re-liquify it.",
   },
 ];
