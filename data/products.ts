@@ -10,25 +10,25 @@ export const products = [
   {
     name: "Raw Honeycomb",
     description:
-      "Straight from the hive — chewy, waxy, and bursting with unfiltered honey. Perfect on a cheese board or eaten by the spoonful.",
+      "Straight from the hive, chewy and bursting with unfiltered honey. Perfect on a cheese board or eaten by the spoonful.",
     image: "/photos/packaged-honeycomb.jpg",
     imageAlt: "Packaged squares of raw honeycomb ready for sale",
     tag: "Fan Favorite",
   },
   {
-    name: "Wildflower Honey Butter",
+    name: "Lavender Honey Butter",
     description:
-      "Our mountain wildflower honey whipped with creamy butter. Spread it on warm bread, pancakes, or biscuits for a taste of the Rockies.",
-    image: "/photos/product-awards-display.jpg",
-    imageAlt: "Award-winning Bee Bomb honey arranged with ribbons and a frame of comb",
+      "Wildflower honey whipped with creamy butter and real lavender. Spread it on warm biscuits, toast, or pancakes.",
+    image: "/photos/lavender_butter.jpg",
+    imageAlt: "Two glass jars of lavender honey butter with fresh lavender sprigs on a wooden deck",
     tag: "New",
   },
   {
-    name: "Berry Honey Jam",
+    name: "Beeswax Lip Balm",
     description:
-      "Local berries blended with our raw honey — no refined sugar. A sweet, tangy spread that captures Colorado summer in every jar.",
-    image: "/photos/product-bags-and-jars.jpg",
-    imageAlt: "Bee Bomb branded gift bags with honey jars on display",
-    tag: "Seasonal",
+      "Pure beeswax straight from the hive. Simple ingredients, no fillers. Comes in a classic black tin with the Bee Bomb stamp.",
+    image: "/photos/beebomblipbalm.jpg",
+    imageAlt: "Five Bee Bomb Honey lip balm tins arranged in snow",
+    tag: "New",
   },
 ];

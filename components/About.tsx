@@ -10,7 +10,7 @@ export default function About() {
             Our Story
           </p>
           <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl font-bold text-brown mb-4">
-            Born in the Rockies
+            A Family Operation
           </h2>
           <div className="honey-divider max-w-xs mx-auto">
             <span className="text-honey text-2xl">&#x2B21;</span>
@@ -37,29 +37,29 @@ export default function About() {
           {/* Text */}
           <div>
             <p className="text-lg text-brown-light leading-relaxed mb-6">
-              Bee Bomb Honey was born out of a deep love for bees and the wild,
-              rugged beauty of Steamboat Springs, Colorado. Nestled in the Yampa
-              Valley at over 6,000 feet, our hives sit among mountain meadows
-              bursting with wildflowers — clover, lupine, fireweed, and more.
+              Bee Bomb Honey is an LLC owned and operated by the Olson family,
+              who work in and through Steamboat Springs, Colorado. They started
+              the business at the peak of the COVID-19 pandemic and found
+              early success as neighbors and local businesses began buying out
+              their stock every season.
             </p>
             <p className="text-lg text-brown-light leading-relaxed mb-6">
-              We practice natural, sustainable beekeeping. No chemicals, no
-              shortcuts. Just happy bees doing what they do best — turning
-              Colorado wildflowers into liquid gold.
+              That community support pushed them to grow. Today they keep hives
+              in Steamboat, Hayden, and Denver, each location producing honey
+              with its own distinct character depending on what happens to be
+              blooming nearby.
             </p>
             <p className="text-lg text-brown-light leading-relaxed mb-8">
-              Every jar of Bee Bomb Honey is raw, unfiltered, and packed with the
-              natural enzymes and pollen that make real honey so special. From
-              our hives to your table, we keep it pure — because our bees are
-              the bomb.
+              No chemicals, no shortcuts. Every jar is raw and unfiltered,
+              the way honey is supposed to be.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6">
               {[
+                { number: "3", label: "Hive Locations" },
                 { number: "100%", label: "Raw & Unfiltered" },
-                { number: "6,800ft", label: "Elevation" },
-                { number: "Local", label: "Yampa Valley" },
+                { number: "Local", label: "Family Owned" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="font-[family-name:var(--font-playfair)] text-2xl sm:text-3xl font-bold text-honey">

@@ -20,11 +20,6 @@ export const faqs = [
       "Mountain wildflower honey comes from bees that forage on a diverse mix of high-altitude wildflowers. This creates a complex, rich flavor profile that changes subtly with each season, unlike single-source honeys.",
   },
   {
-    question: "Do you offer wholesale or bulk orders?",
-    answer:
-      "We do! Whether you're a restaurant, retailer, or planning an event, we'd love to work with you. Reach out to us at beebombhoneyco@gmail.com and we'll put together a custom quote.",
-  },
-  {
     question: "How should I store my honey?",
     answer:
       "Store honey at room temperature in a dry place. Raw honey never expires! If it crystallizes, that's completely natural — just place the jar in warm water to re-liquify it.",
