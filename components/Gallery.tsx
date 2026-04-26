@@ -1,72 +1,55 @@
-export default function Footer() {
+import Image from "next/image";
+
+const galleryImages = [
+  { src: "/photos/award-patio-wide.jpg", alt: "Award-winning Bee Bomb comb honey and ribbons displayed on a patio overlooking Steamboat Springs", span: "col-span-2 md:row-span-2" },
+  { src: "/photos/honeycombpic.jpg", alt: "Honeycomb frame on a steel stand with jars of golden honey on a mountain deck at sunset", span: "col-span-2" },
+  { src: "/photos/product-jars-lineup.jpg", alt: "Four Bee Bomb honey jars lined up outdoors in different sizes and shades of gold", span: "" },
+  { src: "/photos/lavender_butter.jpg", alt: "Two glass jars of lavender honey butter with fresh lavender sprigs on a wooden deck", span: "" },
+  { src: "/photos/beebomblipbalm.jpg", alt: "Five Bee Bomb Honey lip balm tins arranged in snow", span: "" },
+  { src: "/photos/comb-closeup-a.jpg", alt: "Close-up of raw honey gleaming inside open comb cells", span: "md:row-span-2" },
+  { src: "/photos/bees-on-frame-landscape.jpg", alt: "Bees clustered across a honeycomb frame with Colorado mountains in the background", span: "" },
+  { src: "/photos/frame-held-vertical.jpg", alt: "A honey-filled frame lifted above an open hive during inspection", span: "md:row-span-2" },
+  { src: "/photos/beekeeper-hillside.jpg", alt: "Beekeeper holding a frame on a dry Colorado hillside under blue sky", span: "" },
+  { src: "/photos/award-portrait.jpg", alt: "Bee Bomb award display with comb honey and ribbons on a sunny deck", span: "" },
+  { src: "/photos/jars-kitchen-clean.jpg", alt: "Freshly filled honey jars lined across a kitchen counter", span: "col-span-2" },
+  { src: "/photos/product-honey-and-comb.jpg", alt: "Tall honey jar beside stacked trays of comb honey in warm afternoon light", span: "" },
+  { src: "/photos/packaged-honeycomb.jpg", alt: "Packaged squares of raw honeycomb ready for sale", span: "" },
+  { src: "/photos/honeycomb-awards-table.jpg", alt: "Competition ribbons spread around a frame of capped honeycomb on a table", span: "col-span-2" },
+];
+
+export default function Gallery() {
   return (
-    <footer className="bg-brown text-white/70 py-16">
+    <section id="gallery" className="relative py-24 sm:py-32 honeycomb-bg">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid sm:grid-cols-3 gap-10">
-          {/* Brand */}
-          <div>
-            <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-white mb-3">
-              <span className="text-honey">Bee Bomb</span> Honey
-            </h3>
-            <p className="text-sm leading-relaxed italic">
-              Our bees are the bomb.
-            </p>
-            <p className="text-sm mt-2">Steamboat Springs, Colorado</p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-semibold uppercase tracking-wider text-sm mb-4">
-              Quick Links
-            </h4>
-            <div className="space-y-2">
-              {["Home", "About", "Products", "Gallery", "Blog", "FAQ", "Contact"].map(
-                (link) => (
-                  <a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="block text-sm hover:text-honey transition-colors"
-                  >
-                    {link}
-                  </a>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold uppercase tracking-wider text-sm mb-4">
-              Contact
-            </h4>
-            <div className="space-y-2 text-sm">
-              <p>2130 Resort Drive, Unit E</p>
-              <p>Steamboat Springs, CO</p>
-              <a href="tel:3036411659" className="block hover:text-honey transition-colors">
-                (303) 641-1659
-              </a>
-              <a href="mailto:beebombhoneyco@gmail.com" className="block hover:text-honey transition-colors">
-                beebombhoneyco@gmail.com
-              </a>
-              <a
-                href="https://www.facebook.com/people/Bee-Bomb-Honey/61552058123683/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-honey transition-colors mt-2"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-                Facebook
-              </a>
-            </div>
+        <div className="text-center mb-16">
+          <p className="text-honey font-medium tracking-[0.2em] uppercase text-sm mb-3">
+            From the Hive
+          </p>
+          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl font-bold text-brown mb-4">
+            Gallery
+          </h2>
+          <div className="honey-divider max-w-xs mx-auto">
+            <span className="text-honey text-2xl">&#x2B21;</span>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Bee Bomb Honey. All rights reserved.</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px] md:auto-rows-[220px] grid-flow-dense">
+          {galleryImages.map((img) => (
+            <div
+              key={img.src}
+              className={`relative overflow-hidden rounded-xl shadow-md ${img.span}`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          ))}
         </div>
       </div>
-    </footer>
+    </section>
   );
 }

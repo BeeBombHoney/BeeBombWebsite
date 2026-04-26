@@ -1,117 +1,77 @@
 import Image from "next/image";
 
-const galleryImages = [
-  {
-    src: "/photos/award-patio-wide.jpg",
-    alt: "Award-winning Bee Bomb comb honey and ribbons displayed on a patio overlooking Steamboat Springs",
-    span: "col-span-2 md:row-span-2",
-  },
-  {
-    src: "/photos/honeycombpic.jpg",
-    alt: "Honeycomb frame on a steel stand with jars of golden honey on a mountain deck at sunset",
-    span: "col-span-2",
-  },
-  {
-    src: "/photos/product-jars-lineup.jpg",
-    alt: "Four Bee Bomb honey jars lined up outdoors in different sizes and shades of gold",
-    span: "",
-  },
-  {
-    src: "/photos/product-awards-display.jpg",
-    alt: "Honey jar, honeycomb, and competition ribbons arranged in a wooden crate",
-    span: "",
-  },
-  {
-    src: "/photos/lavender_butter.jpg",
-    alt: "Two glass jars of lavender honey butter with fresh lavender sprigs on a wooden deck",
-    span: "",
-  },
-  {
-    src: "/photos/beebomblipbalm.jpg",
-    alt: "Five Bee Bomb Honey lip balm tins with branded labels arranged in snow",
-    span: "",
-  },
-  {
-    src: "/photos/comb-closeup-a.jpg",
-    alt: "Close-up of raw honey gleaming inside open comb cells",
-    span: "md:row-span-2",
-  },
-  {
-    src: "/photos/bees-on-frame-landscape.jpg",
-    alt: "Bees clustered across a honeycomb frame with Colorado mountains in the background",
-    span: "",
-  },
-  {
-    src: "/photos/frame-held-vertical.jpg",
-    alt: "A honey-filled frame lifted above an open hive during inspection",
-    span: "md:row-span-2",
-  },
-  {
-    src: "/photos/beekeeper-hillside.jpg",
-    alt: "Beekeeper holding a frame on a dry Colorado hillside under blue sky",
-    span: "",
-  },
-  {
-    src: "/photos/award-portrait.jpg",
-    alt: "Bee Bomb award display with comb honey and ribbons on a sunny deck",
-    span: "",
-  },
-  {
-    src: "/photos/jars-kitchen-clean.jpg",
-    alt: "Freshly filled honey jars lined across a kitchen counter",
-    span: "col-span-2",
-  },
-  {
-    src: "/photos/product-honey-and-comb.jpg",
-    alt: "Tall honey jar beside stacked trays of comb honey in warm afternoon light",
-    span: "",
-  },
-  {
-    src: "/photos/packaged-honeycomb.jpg",
-    alt: "Packaged squares of raw honeycomb ready for sale",
-    span: "",
-  },
-  {
-    src: "/photos/honeycomb-awards-table.jpg",
-    alt: "Competition ribbons spread around a frame of capped honeycomb on a table",
-    span: "col-span-2",
-  },
-];
-
-export default function Gallery() {
+export default function Hero() {
   return (
-    <section id="gallery" className="relative py-24 sm:py-32 honeycomb-bg">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-honey font-medium tracking-[0.2em] uppercase text-sm mb-3">
-            From the Hive
-          </p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl font-bold text-brown mb-4">
-            Gallery
-          </h2>
-          <div className="honey-divider max-w-xs mx-auto">
-            <span className="text-honey text-2xl">&#x2B21;</span>
-          </div>
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/photos/frame-held-wide.jpg"
+          alt="Beekeeper holding a frame of honeycomb at a Colorado mountain apiary"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: "center 38%" }}
+        />
+      </div>
+      {/* Dark overlay with warm tint */}
+      <div className="absolute inset-0 bg-gradient-to-b from-brown/75 via-brown/55 to-brown/75" />
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        {/* Logo */}
+        <div className="animate-fade-in mb-6">
+          <Image
+            src="/bee_bomb_logo.png"
+            alt="Bee Bomb Honey"
+            width={120}
+            height={120}
+            className="mx-auto object-contain"
+          />
         </div>
 
-        {/* Photo grid — no titles, no lightbox, just art */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px] md:auto-rows-[220px] grid-flow-dense">
-          {galleryImages.map((img) => (
-            <div
-              key={img.src}
-              className={`relative overflow-hidden rounded-xl shadow-md ${img.span}`}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-          ))}
+        <p className="animate-fade-in-up delay-100 text-honey font-medium tracking-[0.3em] uppercase text-sm mb-4">
+          Steamboat Springs, Colorado
+        </p>
+
+        <h1 className="animate-fade-in-up delay-200 font-[family-name:var(--font-playfair)] text-6xl sm:text-7xl md:text-8xl font-bold text-white leading-tight mb-6">
+          Bee Bomb
+          <br />
+          <span className="text-honey">Honey</span>
+        </h1>
+
+        <p className="animate-fade-in-up delay-300 text-xl sm:text-2xl text-white/80 font-[family-name:var(--font-playfair)] italic mb-10">
+          Our bees are the bomb.
+        </p>
+
+        <div className="animate-fade-in-up delay-400 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#products"
+            className="inline-block bg-honey text-brown font-semibold px-8 py-4 rounded-full hover:bg-honey-light transition-colors duration-300 shadow-lg hover:shadow-xl"
+          >
+            Explore Our Honey
+          </a>
+          <a
+            href="#about"
+            className="inline-block border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-full hover:border-honey hover:text-honey transition-colors duration-300"
+          >
+            Our Story
+          </a>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in delay-600">
+        <a href="#about" className="flex flex-col items-center gap-2 text-white/50 hover:text-honey transition-colors">
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
       </div>
     </section>
   );
