@@ -1,70 +1,72 @@
-"use client";
-
-import { useState } from "react";
-import { faqs } from "@/data/faq";
-
-export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
+export default function Footer() {
   return (
-    <section id="faq" className="relative py-24 sm:py-32 honeycomb-bg">
-      <div className="mx-auto max-w-3xl px-6">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-honey font-medium tracking-[0.2em] uppercase text-sm mb-3">
-            Common Questions
-          </p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl font-bold text-brown mb-4">
-            FAQ
-          </h2>
-          <div className="honey-divider max-w-xs mx-auto">
-            <span className="text-honey text-2xl">&#x2B21;</span>
+    <footer className="bg-brown text-white/70 py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid sm:grid-cols-3 gap-10">
+          {/* Brand */}
+          <div>
+            <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-white mb-3">
+              <span className="text-honey">Bee Bomb</span> Honey
+            </h3>
+            <p className="text-sm leading-relaxed italic">
+              Our bees are the bomb.
+            </p>
+            <p className="text-sm mt-2">Steamboat Springs, Colorado</p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-white font-semibold uppercase tracking-wider text-sm mb-4">
+              Quick Links
+            </h4>
+            <div className="space-y-2">
+              {["Home", "About", "Products", "Gallery", "Blog", "FAQ", "Contact"].map(
+                (link) => (
+                  <a
+                    key={link}
+                    href={`#${link.toLowerCase()}`}
+                    className="block text-sm hover:text-honey transition-colors"
+                  >
+                    {link}
+                  </a>
+                )
+              )}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-white font-semibold uppercase tracking-wider text-sm mb-4">
+              Contact
+            </h4>
+            <div className="space-y-2 text-sm">
+              <p>2130 Resort Drive, Unit E</p>
+              <p>Steamboat Springs, CO</p>
+              <a href="tel:3036411659" className="block hover:text-honey transition-colors">
+                (303) 641-1659
+              </a>
+              <a href="mailto:beebombhoneyco@gmail.com" className="block hover:text-honey transition-colors">
+                beebombhoneyco@gmail.com
+              </a>
+              <a
+                href="https://www.facebook.com/people/Bee-Bomb-Honey/61552058123683/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-honey transition-colors mt-2"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                Facebook
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Accordion */}
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="bg-warm-white rounded-xl shadow-md overflow-hidden border border-cream-dark/50"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-cream/50 transition-colors"
-              >
-                <span className="font-[family-name:var(--font-playfair)] text-lg font-semibold text-brown pr-4">
-                  {faq.question}
-                </span>
-                <svg
-                  className={`w-5 h-5 text-honey shrink-0 transition-transform duration-300 ${
-                    openIndex === i ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                className={`transition-all duration-300 overflow-hidden ${
-                  openIndex === i ? "max-h-96 pb-6" : "max-h-0"
-                }`}
-              >
-                <p className="px-6 text-brown-light leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm">
+          <p>&copy; {new Date().getFullYear()} Bee Bomb Honey. All rights reserved.</p>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }

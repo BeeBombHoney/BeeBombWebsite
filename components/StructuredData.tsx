@@ -1,72 +1,81 @@
-import Image from "next/image";
+/**
+ * JSON-LD structured data for Google rich results and local SEO.
+ *
+ * dangerouslySetInnerHTML is intentional and safe here: all values are
+ * hardcoded constants or come from our own data files (no user input),
+ * and JSON.stringify on a plain object cannot produce XSS.
+ * This pattern is the official Next.js recommendation for JSON-LD.
+ */
 
 import { products } from "@/data/products";
 
-export default function Products() {
+const SITE_URL = "https://bee-bomb-website.vercel.app";
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Bee Bomb Honey",
+  description:
+    "Pure, raw mountain wildflower honey from the Yampa Valley. Honey, honeycomb, jams & butters crafted by Bee Bomb Honey in Steamboat Springs, Colorado.",
+  url: SITE_URL,
+  image: `${SITE_URL}/photos/frame-held-wide.jpg`,
+  telephone: "+1-303-641-1659",
+  email: "beebombhoneyco@gmail.com",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2130 Resort Drive, Unit E",
+    addressLocality: "Steamboat Springs",
+    addressRegion: "CO",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 40.485,
+    longitude: -106.8317,
+  },
+  sameAs: [
+    "https://www.facebook.com/people/Bee-Bomb-Honey/61552058123683/",
+  ],
+};
+
+const productList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Bee Bomb Honey Products",
+  itemListElement: products.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Product",
+      name: product.name,
+      description: product.description,
+      image: `${SITE_URL}${product.image}`,
+      brand: {
+        "@type": "Brand",
+        name: "Bee Bomb Honey",
+      },
+    },
+  })),
+};
+
+// All data is static — safe to pass directly to the script tag.
+const localBusinessJson = JSON.stringify(localBusiness);
+const productListJson = JSON.stringify(productList);
+
+export default function StructuredData() {
   return (
-    <section id="products" className="relative py-24 sm:py-32 bg-cream">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-honey font-medium tracking-[0.2em] uppercase text-sm mb-3">
-            What We Make
-          </p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl font-bold text-brown mb-4">
-            Our Products
-          </h2>
-          <div className="honey-divider max-w-xs mx-auto">
-            <span className="text-honey text-2xl">&#x2B21;</span>
-          </div>
-          <p className="mt-6 text-brown-light max-w-2xl mx-auto text-lg">
-            From pure mountain honey to hand-crafted spreads, everything we make
-            starts with our bees and the wildflowers of the Yampa Valley.
-          </p>
-        </div>
-
-        {/* Product grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.name}
-              className="group bg-warm-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden h-64">
-                <Image
-                  src={product.image}
-                  alt={product.imageAlt ?? product.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                {/* Tag */}
-                <span className="absolute top-4 right-4 bg-honey text-brown text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
-                  {product.tag}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-brown mb-3">
-                  {product.name}
-                </h3>
-                <p className="text-brown-light text-sm leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="#contact"
-            className="inline-block bg-honey text-brown font-semibold px-8 py-4 rounded-full hover:bg-honey-light transition-colors duration-300 shadow-lg hover:shadow-xl"
-          >
-            Inquire About Orders
-          </a>
-        </div>
-      </div>
-    </section>
+    <>
+      <script
+        type="application/ld+json"
+        // Safe: static data only, no user input
+        dangerouslySetInnerHTML={{ __html: localBusinessJson }}
+      />
+      <script
+        type="application/ld+json"
+        // Safe: static data only, no user input
+        dangerouslySetInnerHTML={{ __html: productListJson }}
+      />
+    </>
   );
 }

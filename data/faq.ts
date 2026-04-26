@@ -2,12 +2,12 @@ export const faqs = [
   {
     question: "Is your honey raw and unfiltered?",
     answer:
-      "Yes. All of our honey is 100% raw and unfiltered. We never heat-treat or ultra-filter our honey, so it retains all of its natural enzymes, pollen, and nutrients straight from the hive.",
+      "Yes! All of our honey is 100% raw and unfiltered. We never heat-treat or ultra-filter our honey, so it retains all of its natural enzymes, pollen, and nutrients straight from the hive.",
   },
   {
     question: "Where are your bees located?",
     answer:
-      "We keep hives in three locations: Steamboat Springs, Hayden, and Denver. Each spot has its own mix of local flora, which gives the honey from each location its own distinct flavor.",
+      "Our hives are located throughout the Yampa Valley near Steamboat Springs, Colorado. Our bees forage on wildflowers in mountain meadows at elevations between 6,000 and 8,000 feet.",
   },
   {
     question: "How can I purchase your honey?",
@@ -17,11 +17,16 @@ export const faqs = [
   {
     question: "What makes mountain wildflower honey different?",
     answer:
-      "Mountain wildflower honey comes from bees foraging on a wide mix of high-altitude wildflowers. That diversity creates a complex, rich flavor that shifts subtly with each season, unlike single-source honeys.",
+      "Mountain wildflower honey comes from bees that forage on a diverse mix of high-altitude wildflowers. This creates a complex, rich flavor profile that changes subtly with each season, unlike single-source honeys.",
+  },
+  {
+    question: "Do you offer wholesale or bulk orders?",
+    answer:
+      "We do! Whether you're a restaurant, retailer, or planning an event, we'd love to work with you. Reach out to us at beebombhoneyco@gmail.com and we'll put together a custom quote.",
   },
   {
     question: "How should I store my honey?",
     answer:
-      "Store honey at room temperature in a dry place. Raw honey never expires. If it crystallizes, that is completely natural. Just set the jar in warm water to re-liquify it.",
+      "Store honey at room temperature in a dry place. Raw honey never expires! If it crystallizes, that's completely natural — just place the jar in warm water to re-liquify it.",
   },
 ];

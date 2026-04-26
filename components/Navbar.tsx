@@ -1,82 +1,116 @@
-const videos = [
-  {
-    src: "/videos/swarm-cluster.mp4",
-    poster: "/videos/swarm-cluster-poster.jpg",
-    title: "Swarm Cluster",
-    description:
-      "A hanging swarm gathered in the aspens before being carefully relocated.",
-    duration: "0:09",
-  },
-  {
-    src: "/videos/swarm-closeup.mp4",
-    poster: "/videos/swarm-closeup-poster.jpg",
-    title: "Swarm Close-Up",
-    description:
-      "A closer look at the bees packed together as the cluster settles.",
-    duration: "0:08",
-  },
-  {
-    src: "/videos/hillside-apiary.mp4",
-    poster: "/videos/hillside-apiary-poster.jpg",
-    title: "Hillside Apiary",
-    description:
-      "One of the Bee Bomb setups out on a dry Colorado hillside.",
-    duration: "0:07",
-  },
+"use client";
+
+import { useState, useEffect } from "react";
+
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Products", href: "#products" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Videos", href: "#videos" },
+  { label: "Blog", href: "#blog" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
 ];
 
-export default function HiveInMotion() {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section id="videos" className="relative py-24 sm:py-32 bg-cream">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center mb-16">
-          <p className="text-honey font-medium tracking-[0.2em] uppercase text-sm mb-3">
-            Hive In Motion
-          </p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl font-bold text-brown mb-4">
-            See the Bees at Work
-          </h2>
-          <div className="honey-divider max-w-xs mx-auto">
-            <span className="text-honey text-2xl">&#x2B21;</span>
-          </div>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-brown-light">
-            Short clips from swarm season, hive checks, and the mountain apiary.
-          </p>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-warm-white/95 backdrop-blur-md shadow-md"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <a
+          href="#home"
+          className="font-[family-name:var(--font-playfair)] text-2xl font-bold tracking-tight"
+        >
+          <span className="text-honey">Bee Bomb</span>{" "}
+          <span className={scrolled ? "text-brown" : "text-white"}>Honey</span>
+        </a>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-honey ${
+                scrolled ? "text-brown-light" : "text-white/90"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {videos.map((video) => (
-            <article
-              key={video.src}
-              className="overflow-hidden rounded-3xl bg-warm-white shadow-lg ring-1 ring-honey/10"
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`block w-6 h-0.5 transition-all duration-300 ${
+              menuOpen
+                ? "rotate-45 translate-y-2 bg-brown"
+                : scrolled
+                  ? "bg-brown"
+                  : "bg-white"
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 transition-all duration-300 ${
+              menuOpen
+                ? "opacity-0"
+                : scrolled
+                  ? "bg-brown"
+                  : "bg-white"
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 transition-all duration-300 ${
+              menuOpen
+                ? "-rotate-45 -translate-y-2 bg-brown"
+                : scrolled
+                  ? "bg-brown"
+                  : "bg-white"
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 bg-warm-white/95 backdrop-blur-md ${
+          menuOpen ? "max-h-96 border-b border-cream-dark" : "max-h-0"
+        }`}
+      >
+        <div className="px-6 pb-6 flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-brown-light text-sm font-medium uppercase tracking-wide hover:text-honey transition-colors"
             >
-              <div className="relative bg-brown">
-                <span className="absolute right-4 top-4 z-10 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-white">
-                  {video.duration}
-                </span>
-                <video
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster={video.poster}
-                  className="aspect-[9/16] w-full object-cover"
-                >
-                  <source src={video.src} type="video/mp4" />
-                  Your browser does not support embedded videos.
-                </video>
-              </div>
-              <div className="p-6">
-                <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-brown mb-3">
-                  {video.title}
-                </h3>
-                <p className="text-brown-light leading-relaxed">
-                  {video.description}
-                </p>
-              </div>
-            </article>
+              {link.label}
+            </a>
           ))}
         </div>
       </div>
-    </section>
+    </nav>
   );
 }

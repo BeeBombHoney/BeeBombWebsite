@@ -23,15 +23,25 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Logo */}
+        {/* Decorative bee icon */}
         <div className="animate-fade-in mb-6">
-          <Image
-            src="/bee_bomb_logo.png"
-            alt="Bee Bomb Honey"
-            width={120}
-            height={120}
-            className="mx-auto object-contain"
-          />
+          <svg
+            className="mx-auto w-12 h-12 text-honey"
+            viewBox="0 0 64 64"
+            fill="currentColor"
+          >
+            <ellipse cx="32" cy="28" rx="14" ry="18" />
+            <ellipse cx="32" cy="28" rx="14" ry="18" fill="none" stroke="currentColor" strokeWidth="1" />
+            <rect x="26" y="20" width="12" height="3" rx="1" fill="#3E2723" opacity="0.5" />
+            <rect x="26" y="26" width="12" height="3" rx="1" fill="#3E2723" opacity="0.5" />
+            <rect x="26" y="32" width="12" height="3" rx="1" fill="#3E2723" opacity="0.5" />
+            <ellipse cx="20" cy="16" rx="10" ry="6" fill="currentColor" opacity="0.3" transform="rotate(-30 20 16)" />
+            <ellipse cx="44" cy="16" rx="10" ry="6" fill="currentColor" opacity="0.3" transform="rotate(30 44 16)" />
+            <circle cx="28" cy="22" r="2" fill="#3E2723" />
+            <circle cx="36" cy="22" r="2" fill="#3E2723" />
+            <line x1="30" y1="46" x2="28" y2="54" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <line x1="34" y1="46" x2="36" y2="54" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </div>
 
         <p className="animate-fade-in-up delay-100 text-honey font-medium tracking-[0.3em] uppercase text-sm mb-4">

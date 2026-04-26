@@ -2,33 +2,33 @@ export const products = [
   {
     name: "Mountain Wildflower Honey",
     description:
-      "Pure, raw honey harvested from wildflower meadows across the Yampa Valley. Rich and complex, with floral notes that shift subtly from season to season.",
-    image: "/photos/honeycombpic.jpg",
-    imageAlt: "Honeycomb frame on a steel stand with jars of golden honey on a mountain deck at sunset",
+      "Pure, raw honey harvested from wildflower meadows in the Yampa Valley. Rich, complex flavor with floral notes unique to the Colorado Rockies.",
+    image: "/photos/product-jars-lineup.jpg",
+    imageAlt: "Four Bee Bomb honey jars lined up outdoors in different sizes and shades of gold",
     tag: "Bestseller",
   },
   {
     name: "Raw Honeycomb",
     description:
-      "Straight from the hive, chewy and bursting with unfiltered honey. Perfect on a cheese board, with fresh bread, or eaten by the spoonful.",
+      "Straight from the hive — chewy, waxy, and bursting with unfiltered honey. Perfect on a cheese board or eaten by the spoonful.",
     image: "/photos/packaged-honeycomb.jpg",
     imageAlt: "Packaged squares of raw honeycomb ready for sale",
     tag: "Fan Favorite",
   },
   {
-    name: "Lavender Honey Butter",
+    name: "Wildflower Honey Butter",
     description:
-      "Wildflower honey whipped with creamy butter and real lavender. Spread it on warm biscuits, toast, or pancakes for something genuinely special.",
-    image: "/photos/lavender_butter.jpg",
-    imageAlt: "Two glass jars of lavender honey butter with fresh lavender sprigs on a wooden deck",
+      "Our mountain wildflower honey whipped with creamy butter. Spread it on warm bread, pancakes, or biscuits for a taste of the Rockies.",
+    image: "/photos/product-awards-display.jpg",
+    imageAlt: "Award-winning Bee Bomb honey arranged with ribbons and a frame of comb",
     tag: "New",
   },
   {
-    name: "Beeswax Lip Balm",
+    name: "Berry Honey Jam",
     description:
-      "Made with pure beeswax straight from the hive. Simple ingredients, no fillers. Comes in a classic black tin with the Bee Bomb stamp.",
-    image: "/photos/beebomblipbalm.jpg",
-    imageAlt: "Five Bee Bomb Honey lip balm tins with branded labels arranged in snow",
-    tag: "New",
+      "Local berries blended with our raw honey — no refined sugar. A sweet, tangy spread that captures Colorado summer in every jar.",
+    image: "/photos/product-bags-and-jars.jpg",
+    imageAlt: "Bee Bomb branded gift bags with honey jars on display",
+    tag: "Seasonal",
   },
 ];
